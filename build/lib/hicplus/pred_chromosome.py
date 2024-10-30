@@ -40,7 +40,7 @@ def predict(M,N,inmodel):
         hires_loader = lowres_loader
 
         m = model.Net(40, 28)
-        m.load_state_dict(torch.load(inmodel, map_location=torch.device('gpu')))
+        m.load_state_dict(torch.load(inmodel, map_location=torch.device('cpu')))
 
         if torch.cuda.is_available():
             m = m.cuda()
